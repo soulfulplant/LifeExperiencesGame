@@ -1342,3 +1342,69 @@ footer {
   background: #fff;
   border: 1px solid var(--line);
   border-radius: 8px;
+/* Index hero card display fixes */
+.hero-right {
+  min-height: 430px;
+  position: relative;
+}
+
+.product-stage {
+  position: relative;
+  width: min(100%, 470px);
+  height: 430px;
+  margin-left: auto;
+}
+
+.game-box {
+  top: 0;
+  right: 0;
+  width: 190px;
+  height: 220px;
+  background: var(--cream-deep);
+  color: var(--ink);
+  box-shadow: 0 18px 36px rgba(0,0,0,.18);
+}
+
+.game-box em {
+  color: var(--orange);
+}
+
+.game-box small {
+  color: var(--body);
+}
+
+.game-box .box-meta {
+  color: var(--ink);
+}
+
+.sample-card.orange {
+  background: var(--cream-deep);
+  color: var(--ink);
+  left: 0;
+  top: 30px;
+}
+
+.sample-card.teal {
+  background: var(--teal);
+  color: #fff;
+  left: 154px;
+  top: 62px;
+}
+
+.sample-card.story {
+  background: var(--cream-deep);
+  color: var(--ink);
+  left: 306px;
+  top: 240px;
+  z-index: 4;
+}
+
+.sample-card::before {
+  border: 0;
+  padding: 0;
+}
+
+.sample-card.orange span,
+.sample-card.story span {
+  border-top-color: rgba(0,0,0,.18);
+}
