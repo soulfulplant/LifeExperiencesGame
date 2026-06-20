@@ -1408,3 +1408,25 @@ footer {
 .sample-card.story span {
   border-top-color: rgba(0,0,0,.18);
 }
+/* Slightly larger top-left logo */
+.nav-logo {
+  font-size: 18px;
+  letter-spacing: .4px;
+  min-width: 220px;
+}
+
+.nav-logo span {
+  font-size: 14px;
+  margin-top: 2px;
+}
+
+@media (max-width: 760px) {
+  .nav-logo {
+    font-size: 15px;
+    min-width: auto;
+  }
+
+  .nav-logo span {
+    font-size: 12px;
+  }
+}
