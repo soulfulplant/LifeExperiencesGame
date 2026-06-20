@@ -1,0 +1,752 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Life Experiences (Unfortunately) - Adult Party Card Game</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;0,900;1,700&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --orange: #B73A22;
+    --orange-dark: #942F1D;
+    --teal: #173F3D;
+    --teal-soft: #E8F0EF;
+    --cream: #F5EFE6;
+    --cream-deep: #E6DAC8;
+    --paper: #FFFDF9;
+    --ink: #171717;
+    --body: #303030;
+    --muted: #5C5C5C;
+    --line: #DDD2C2;
+    --on-dark: #FFFFFF;
+    --on-dark-soft: #F7EDE2;
+    --focus: #0B6CF0;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Lato', Arial, sans-serif;
+    color: var(--body);
+    background: var(--paper);
+    line-height: 1.5;
+  }
+  a { color: inherit; }
+
+  .visually-hidden {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+  }
+
+  .btn-orange {
+    background: var(--orange);
+    color: #fff;
+    border: 2px solid var(--orange);
+    padding: 10px 20px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    transition: background .2s ease, border-color .2s ease, transform .2s ease;
+  }
+  .btn-orange:hover { background: var(--orange-dark); border-color: var(--orange-dark); transform: translateY(-1px); }
+  .btn-orange:focus-visible, a:focus-visible, button:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 14px 40px;
+    border-bottom: 1px solid var(--line);
+    background: rgba(255,253,249,.96);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+  }
+  .nav-logo {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 900;
+    font-size: 14px;
+    line-height: 1.2;
+    text-decoration: none;
+    color: var(--ink);
+    flex-shrink: 0;
+  }
+  .nav-logo span { display: block; font-style: italic; font-weight: 800; color: var(--orange); font-size: 12px; }
+  .nav-links { display: flex; gap: 22px; list-style: none; align-items: center; }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 900;
+    color: var(--ink);
+    letter-spacing: .3px;
+  }
+  .nav-links a:hover { color: var(--orange); }
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 6px;
+  }
+  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--ink); border-radius: 2px; transition: all .25s; }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 57px;
+    z-index: 99;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--ink);
+    padding: 14px 20px;
+    border-bottom: 1px solid #EEE7DD;
+  }
+  .mobile-menu a:hover { background: var(--cream); color: var(--orange); }
+
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(340px, 480px);
+    align-items: center;
+    gap: 56px;
+    padding: 68px 80px;
+    background: var(--cream);
+    min-height: 560px;
+    overflow: hidden;
+  }
+  .hero-left { max-width: 520px; }
+  .eyebrow {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 900;
+    font-size: 12px;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 10px;
+  }
+  .hero-left h1 {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 900;
+    font-size: clamp(42px, 6vw, 68px);
+    line-height: .95;
+    color: var(--ink);
+    margin-bottom: 18px;
+  }
+  .hero-left h1 em { display: block; font-style: italic; color: var(--orange); font-size: .72em; margin-top: 4px; }
+  .tagline {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .sub { font-size: 17px; color: var(--body); margin-bottom: 24px; max-width: 430px; }
+  .hero-meta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 26px; }
+  .meta-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    border: 1px solid var(--line);
+    color: var(--ink);
+    border-radius: 999px;
+    padding: 8px 12px;
+    font-weight: 900;
+    font-size: 13px;
+  }
+  .meta-pill svg { width: 18px; height: 18px; color: var(--teal); }
+  .secure-note { color: var(--muted); font-size: 12px; margin-top: 10px; font-weight: 700; }
+
+  .hero-right { min-height: 390px; position: relative; }
+  .product-stage { position: relative; width: min(100%, 460px); height: 390px; margin-left: auto; }
+  .game-box {
+    position: absolute;
+    top: 8px;
+    right: 18px;
+    width: 190px;
+    height: 250px;
+    background: var(--teal);
+    color: #fff;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 22px;
+    box-shadow: 0 18px 36px rgba(23,63,61,.32);
+    z-index: 3;
+  }
+  .game-box strong { font-family: 'Montserrat', Arial, sans-serif; font-size: 20px; line-height: 1.05; font-weight: 900; }
+  .game-box em { font-family: 'Montserrat', Arial, sans-serif; color: #FFD9C9; font-size: 14px; font-weight: 800; margin-top: 6px; }
+  .game-box small { color: var(--on-dark-soft); margin-top: 12px; font-weight: 700; line-height: 1.45; }
+  .game-box .box-meta { display: flex; gap: 8px; margin-top: 14px; color: #fff; font-size: 10px; font-weight: 900; }
+
+  .sample-card {
+    position: absolute;
+    width: 136px;
+    min-height: 168px;
+    border-radius: 8px;
+    padding: 13px 12px 11px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 12px 24px rgba(0,0,0,.20);
+    z-index: 2;
+  }
+  .sample-card.orange { background: var(--orange); color: #fff; left: 10px; top: 28px; }
+  .sample-card.teal { background: var(--teal); color: #fff; left: 160px; top: 52px; }
+  .sample-card.story { background: var(--cream-deep); color: var(--ink); right: 78px; bottom: 18px; z-index: 1; }
+  .sample-card::before {
+    content: attr(data-card);
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 900;
+    font-size: 9px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    border: 1.5px solid currentColor;
+    border-radius: 3px;
+    padding: 3px 6px;
+    align-self: flex-start;
+    margin-bottom: 12px;
+  }
+  .sample-card p { font-size: 12px; line-height: 1.35; font-weight: 900; }
+  .sample-card span { display: block; border-top: 1px solid rgba(255,255,255,.35); padding-top: 8px; margin-top: 12px; font-family: 'Montserrat', Arial, sans-serif; font-size: 10px; font-weight: 900; letter-spacing: .8px; text-transform: uppercase; }
+  .sample-card.story span { border-top-color: rgba(0,0,0,.18); }
+  .shadow-card { position: absolute; width: 136px; height: 168px; border-radius: 8px; background: var(--orange); opacity: .28; left: 30px; top: 48px; transform: rotate(5deg); }
+
+  .how-strip {
+    background: #fff;
+    padding: 32px 80px;
+    display: grid;
+    grid-template-columns: minmax(180px, 1.2fr) repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+    border-bottom: 1px solid var(--line);
+  }
+  .how-intro, .how-item {
+    border-left: 4px solid var(--orange);
+    padding-left: 16px;
+    color: var(--body);
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  .how-item strong { color: var(--orange); }
+  .how-label { font-family: 'Montserrat', Arial, sans-serif; font-size: 12px; font-weight: 900; color: var(--ink); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+
+  section { scroll-margin-top: 90px; }
+  .section { padding: 60px 80px; }
+  .section.alt { background: var(--cream); }
+  .section-title {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 900;
+    font-size: 24px;
+    letter-spacing: 1px;
+    color: var(--ink);
+    text-align: center;
+    margin-bottom: 34px;
+    text-transform: uppercase;
+  }
+
+  .examples-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; max-width: 1100px; margin: 0 auto; }
+  .ex-card {
+    border-radius: 8px;
+    padding: 18px 16px 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 190px;
+    box-shadow: 0 8px 18px rgba(0,0,0,.12);
+  }
+  .ex-card.orange { background: var(--orange); color: #fff; }
+  .ex-card.teal { background: var(--teal); color: #fff; }
+  .ex-type {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 900;
+    font-size: 10px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    border: 1.5px solid currentColor;
+    display: inline-block;
+    padding: 3px 7px;
+    border-radius: 3px;
+    margin-bottom: 14px;
+  }
+  .ex-body { font-size: 14px; font-weight: 900; line-height: 1.42; }
+  .ex-pts { font-family: 'Montserrat', Arial, sans-serif; font-weight: 900; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; margin-top: 18px; border-top: 1px solid rgba(255,255,255,.42); padding-top: 8px; }
+
+  .steps { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 18px; }
+  .step {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 20px 16px;
+    min-height: 260px;
+  }
+  .step-num {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: #fff;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+  }
+  .step h3 { font-family: 'Montserrat', Arial, sans-serif; font-weight: 900; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; color: var(--ink); }
+  .step p, .step li { font-size: 14px; line-height: 1.65; color: var(--body); }
+  .step strong { color: var(--orange); font-weight: 900; }
+  .step ul { list-style: none; }
+  .step li { padding-left: 18px; position: relative; margin-bottom: 8px; }
+  .step li::before { content: ''; position: absolute; left: 0; top: .72em; width: 7px; height: 7px; border-radius: 50%; background: var(--orange); }
+
+  .rounds-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+  .round-item { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 14px; }
+  .round-img {
+    background: var(--teal-soft);
+    height: 108px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+  .round-num {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--orange);
+    color: #fff;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 900;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cards-preview { display: flex; gap: 5px; align-items: center; }
+  .mini-card { width: 32px; height: 44px; border-radius: 4px; border: 1px solid rgba(0,0,0,.1); box-shadow: 0 3px 8px rgba(0,0,0,.12); }
+  .round-title { font-family: 'Montserrat', Arial, sans-serif; font-weight: 900; font-size: 12px; letter-spacing: .5px; text-transform: uppercase; margin-bottom: 6px; color: var(--ink); }
+  .round-desc { font-size: 13px; color: var(--body); line-height: 1.55; }
+
+  .bottom-info { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
+  .info-block h2 { font-family: 'Montserrat', Arial, sans-serif; font-weight: 900; font-size: 19px; color: var(--ink); margin-bottom: 10px; }
+  .info-block p { font-size: 15px; color: var(--body); line-height: 1.65; margin-bottom: 12px; }
+  .box-contents { display: flex; gap: 14px; margin-top: 18px; flex-wrap: wrap; }
+  .box-card-type { display: flex; flex-direction: column; align-items: center; gap: 8px; max-width: 92px; }
+  .mini-box {
+    width: 58px;
+    height: 72px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 900;
+    font-size: 8px;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+  }
+  .mini-box.orange { background: var(--orange); }
+  .mini-box.teal { background: var(--teal); }
+  .mini-box.cream { background: var(--cream-deep); color: var(--ink); }
+  .mini-box.dark { background: #444; }
+  .box-card-type span { font-size: 12px; color: var(--body); text-align: center; line-height: 1.35; }
+  .story-card-display { background: var(--cream-deep); border-radius: 8px; padding: 22px; text-align: center; max-width: 220px; margin: 20px auto 0; border: 1px solid var(--line); }
+  .story-card-display .sc-label { font-family: 'Montserrat', Arial, sans-serif; font-weight: 900; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px; }
+  .story-card-display .sc-main { font-family: 'Montserrat', Arial, sans-serif; font-weight: 900; font-size: 18px; line-height: 1.2; margin-bottom: 10px; color: var(--ink); }
+  .story-card-display .sc-sub { font-size: 12px; color: var(--body); font-style: italic; line-height: 1.45; }
+  .review { margin-bottom: 18px; border-bottom: 1px solid var(--line); padding-bottom: 16px; }
+  .stars { color: #A76400; font-size: 16px; margin-bottom: 5px; letter-spacing: 1px; }
+  .review-text { font-size: 15px; color: var(--body); font-style: italic; line-height: 1.55; }
+
+  .warning-banner {
+    background: var(--teal);
+    color: #fff;
+    padding: 22px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+  }
+  .warning-left { display: flex; align-items: flex-start; gap: 16px; }
+  .warning-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #FFD9C9;
+    color: var(--teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 900;
+    flex-shrink: 0;
+  }
+  .warning-title { font-family: 'Montserrat', Arial, sans-serif; font-weight: 900; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #fff; margin-bottom: 4px; }
+  .warning-text { font-size: 14px; line-height: 1.55; color: var(--on-dark-soft); }
+  .warning-banner .secure-note { color: var(--on-dark-soft); text-align: center; }
+
+  footer { background: var(--ink); color: #D6D6D6; padding: 26px 80px; }
+  .footer-top { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 16px; }
+  .footer-logo { font-family: 'Montserrat', Arial, sans-serif; font-weight: 900; font-size: 14px; color: #fff; }
+  .footer-logo span { font-style: italic; color: #FFD9C9; font-size: 12px; display: block; }
+  .footer-links { display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; }
+  .footer-links a { color: #D6D6D6; text-decoration: none; font-size: 12px; }
+  .footer-links a:hover { color: #fff; }
+  .footer-bottom { font-size: 12px; color: #B9B9B9; text-align: center; padding-top: 16px; border-top: 1px solid #363636; }
+
+  @media (max-width: 1080px) {
+    nav { padding: 14px 24px; }
+    .nav-links { gap: 14px; }
+    .hero { padding: 52px 40px; grid-template-columns: minmax(0, 1fr) minmax(320px, 400px); gap: 28px; }
+    .product-stage { transform: scale(.88); transform-origin: right center; }
+    .how-strip { padding: 30px 40px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .section { padding: 52px 40px; }
+    .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .rounds-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .bottom-info { gap: 28px; }
+    .warning-banner, footer { padding-left: 40px; padding-right: 40px; }
+  }
+
+  @media (max-width: 760px) {
+    nav { padding: 12px 16px; }
+    .nav-links, .nav-buy { display: none; }
+    .nav-hamburger { display: flex; }
+    .hero { grid-template-columns: 1fr; padding: 40px 18px 46px; text-align: center; min-height: auto; }
+    .hero-left { max-width: none; }
+    .sub { margin-left: auto; margin-right: auto; }
+    .hero-meta { justify-content: center; }
+    .hero-right { display: none; }
+    .how-strip { display: flex; flex-direction: column; padding: 28px 18px; }
+    .section { padding: 42px 18px; }
+    .section-title { font-size: 20px; margin-bottom: 26px; }
+    .examples-grid, .steps, .rounds-grid, .bottom-info { grid-template-columns: 1fr; }
+    .step { min-height: auto; }
+    .round-img { height: 96px; }
+    .warning-banner { flex-direction: column; align-items: stretch; padding: 22px 18px; }
+    .warning-banner .btn-orange { width: 100%; }
+    footer { padding: 24px 18px; }
+    .footer-top { flex-direction: column; text-align: center; }
+  }
+
+  @media (max-width: 380px) {
+    .hero-left h1 { font-size: 38px; }
+    .tagline { font-size: 17px; }
+    .btn-orange { width: 100%; }
+  }
+</style>
+</head>
+<body>
+<a class="visually-hidden" href="#main">Skip to content</a>
+
+<nav aria-label="Primary navigation">
+  <a class="nav-logo" href="life-experiences.html">LIFE EXPERIENCES <span>(Unfortunately)</span></a>
+  <ul class="nav-links">
+    <li><a href="how-to-play.html">HOW TO PLAY</a></li>
+    <li><a href="#examples">EXAMPLES</a></li>
+    <li><a href="#box">WHAT'S IN THE BOX</a></li>
+    <li><a href="#reviews">REVIEWS</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+  </ul>
+  <a href="#buy" class="btn-orange nav-buy">BUY NOW &ndash; &pound;28.99</a>
+  <button class="nav-hamburger" id="hamburger" type="button" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="how-to-play.html" onclick="closeMenu()">HOW TO PLAY</a>
+  <a href="#examples" onclick="closeMenu()">EXAMPLES</a>
+  <a href="#box" onclick="closeMenu()">WHAT'S IN THE BOX</a>
+  <a href="#reviews" onclick="closeMenu()">REVIEWS</a>
+  <a href="faq.html" onclick="closeMenu()">FAQ</a>
+  <a href="#buy" class="btn-orange" style="margin:12px 16px;text-align:center;" onclick="closeMenu()">BUY NOW &ndash; &pound;28.99</a>
+</div>
+
+<main id="main">
+  <section class="hero" aria-labelledby="page-title">
+    <div class="hero-left">
+      <p class="eyebrow">Life Experiences</p>
+      <h1 id="page-title">LIFE<br>EXPERIENCES <em>(Unfortunately)</em></h1>
+      <p class="tagline">Real life is humiliating.<br>Let's compare notes.</p>
+      <p class="sub">The adult party card game where embarrassing stories become points.</p>
+      <div class="hero-meta" aria-label="Game details">
+        <span class="meta-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          Ages 18+
+        </span>
+        <span class="meta-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          2&ndash;10 Players
+        </span>
+      </div>
+      <a href="#buy" class="btn-orange" style="font-size:15px;padding:14px 28px;">BUY NOW &ndash; &pound;28.99</a>
+      <p class="secure-note">Secure checkout powered by Stripe</p>
+    </div>
+
+    <div class="hero-right" aria-label="Game box and card examples">
+      <div class="product-stage">
+        <div class="shadow-card" aria-hidden="true"></div>
+        <article class="sample-card orange" data-card="Experience Card">
+          <p>When you accidentally send a nude to your family group chat.</p>
+          <span>1 point</span>
+        </article>
+        <article class="sample-card teal" data-card="Reaction Card">
+          <p>You whisper "fuck" with a deadpan face and somehow make it worse.</p>
+          <span>1 point</span>
+        </article>
+        <article class="sample-card story" data-card="Story Card">
+          <p>Tell a real story. Your friends already know you're weird.</p>
+          <span>10 points</span>
+        </article>
+        <div class="game-box">
+          <strong>LIFE<br>EXPERIENCES</strong>
+          <em>(Unfortunately)</em>
+          <small>Real life is humiliating. Let's compare notes.</small>
+          <div class="box-meta"><span>18+</span><span>2&ndash;10</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-strip" aria-label="How it works summary">
+    <div class="how-intro">
+      <div class="how-label">The idea</div>
+      You know therapy is expensive. So compare embarrassing stories and pretend that's healthy.
+    </div>
+    <div class="how-item">
+      <div class="how-label">Draw</div>
+      Draw an <strong>Experience Card</strong> and read it aloud.
+    </div>
+    <div class="how-item">
+      <div class="how-label">React</div>
+      Play the funniest <strong>Reaction Card</strong> from your hand.
+    </div>
+    <div class="how-item">
+      <div class="how-label">Risk it</div>
+      Or use a <strong>Story Card</strong> and tell a real story from your own tragic life.
+    </div>
+  </section>
+
+  <section class="section alt" id="examples">
+    <h2 class="section-title">Examples From The Game</h2>
+    <div class="examples-grid">
+      <article class="ex-card orange">
+        <div><div class="ex-type">Experience Card</div><div class="ex-body">When you accidentally send a nude to your family group chat.</div></div>
+        <div class="ex-pts">1 point</div>
+      </article>
+      <article class="ex-card teal">
+        <div><div class="ex-type">Reaction Card</div><div class="ex-body">You whisper "fuck" with a deadpan face and make it dramatically worse by doing it again.</div></div>
+        <div class="ex-pts">1 point</div>
+      </article>
+      <article class="ex-card orange">
+        <div><div class="ex-type">Experience Card</div><div class="ex-body">When your card gets declined for a tiny purchase and the cashier announces it like you've failed them.</div></div>
+        <div class="ex-pts">1 point</div>
+      </article>
+      <article class="ex-card teal">
+        <div><div class="ex-type">Reaction Card</div><div class="ex-body">You say "this is actually medical" and refuse to elaborate.</div></div>
+        <div class="ex-pts">1 point</div>
+      </article>
+      <article class="ex-card orange">
+        <div><div class="ex-type">Experience Card</div><div class="ex-body">When someone says "tell us a fun fact" and your brain deletes your entire personality.</div></div>
+        <div class="ex-pts">1 point</div>
+      </article>
+      <article class="ex-card teal">
+        <div><div class="ex-type">Reaction Card</div><div class="ex-body">You loudly announce you need to leave the country.</div></div>
+        <div class="ex-pts">1 point</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="how">
+    <h2 class="section-title">How To Play</h2>
+    <div class="steps">
+      <article class="step">
+        <div class="step-num">1</div>
+        <h3>Draw</h3>
+        <p>Draw an <strong>Experience Card</strong> and read it aloud. Brace yourself.</p>
+      </article>
+      <article class="step">
+        <div class="step-num">2</div>
+        <h3>React</h3>
+        <p>Play a <strong>Reaction Card</strong> and read it out. Or play your <strong>Story Card</strong> by telling a real story that fits the Experience.</p>
+      </article>
+      <article class="step">
+        <div class="step-num">3</div>
+        <h3>Vote</h3>
+        <p>Hand your Reaction Card to whoever made you laugh or cringe the hardest. Any cards awarded to you become your points.</p>
+      </article>
+      <article class="step">
+        <div class="step-num">4</div>
+        <h3>Score</h3>
+        <ul>
+          <li><strong>Story Card:</strong> get enough votes and keep your Story Card plus the Experience Card.</li>
+          <li><strong>Full House:</strong> if every other player votes for you, keep the Experience Card.</li>
+        </ul>
+      </article>
+      <article class="step">
+        <div class="step-num">5</div>
+        <h3>Rotate</h3>
+        <p>Top your hand back up to 6 Reaction Cards. Pass the draw to the player on your left. Most points wins.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <h2 class="section-title">See It In Action &ndash; 3 Round Example</h2>
+    <div class="rounds-grid">
+      <article class="round-item">
+        <div class="round-img"><div class="round-num">1</div><div class="cards-preview"><div class="mini-card" style="background:var(--orange);"></div><div class="mini-card" style="background:var(--teal);"></div><div class="mini-card" style="background:var(--cream-deep);"></div></div></div>
+        <div class="round-title">Setup</div>
+        <div class="round-desc">Each player gets 6 Reaction Cards and 1 Story Card. Draw pile in the middle.</div>
+      </article>
+      <article class="round-item">
+        <div class="round-img"><div class="round-num">2</div><div class="cards-preview"><div class="mini-card" style="background:var(--orange);"></div><div class="mini-card" style="background:var(--teal);"></div></div></div>
+        <div class="round-title">Round 1</div>
+        <div class="round-desc">Player 2 gets two votes. Player 1 gets one vote. Player 3 gets none.</div>
+      </article>
+      <article class="round-item">
+        <div class="round-img"><div class="round-num">3</div><div class="cards-preview"><div class="mini-card" style="background:var(--orange);"></div><div class="mini-card" style="background:var(--cream-deep);"></div></div></div>
+        <div class="round-title">Story Card</div>
+        <div class="round-desc">Player 3 tells a real story and wins enough votes to keep bonus cards.</div>
+      </article>
+      <article class="round-item">
+        <div class="round-img"><div class="round-num">4</div><div class="cards-preview"><div class="mini-card" style="background:var(--orange);"></div><div class="mini-card" style="background:var(--teal);"></div><div class="mini-card" style="background:var(--teal);"></div></div></div>
+        <div class="round-title">Full House</div>
+        <div class="round-desc">Everyone votes for Player 1, so they take the votes and the Experience Card.</div>
+      </article>
+      <article class="round-item">
+        <div class="round-img"><div class="round-num">5</div><strong style="font-family:Montserrat,Arial,sans-serif;font-size:28px;color:var(--teal);">WIN</strong></div>
+        <div class="round-title">Final Scores</div>
+        <div class="round-desc">Add up your points. Most points wins. Brag accordingly.</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="box">
+    <div class="bottom-info">
+      <div class="info-block">
+        <h2>What's In The Box?</h2>
+        <p>Enough second-hand embarrassment to permanently alter friendships.</p>
+        <div class="box-contents">
+          <div class="box-card-type"><div class="mini-box orange">Experience<br>Cards</div><span>Experience Cards<br>1 point each</span></div>
+          <div class="box-card-type"><div class="mini-box teal">Reaction<br>Cards</div><span>Reaction Cards<br>1 point each</span></div>
+          <div class="box-card-type"><div class="mini-box cream">Story<br>Cards</div><span>Story Cards<br>10 points each</span></div>
+          <div class="box-card-type"><div class="mini-box dark">Rules</div><span>Rules sheet</span></div>
+        </div>
+      </div>
+
+      <div class="info-block">
+        <h2>Story Cards</h2>
+        <p>Tell a real story. If it fits the Experience and enough people vote for you, you score big.</p>
+        <p>If not, at least you've ruined the vibe honestly.</p>
+        <div class="story-card-display">
+          <div class="sc-label">Story Card</div>
+          <div class="sc-main">Tell a real story!</div>
+          <div class="sc-sub">Or make something up. But if they find out it's fake, you lose.</div>
+        </div>
+      </div>
+
+      <div class="info-block" id="reviews">
+        <h2>Reviews</h2>
+        <div class="review">
+          <div class="stars" aria-label="5 stars">&starf;&starf;&starf;&starf;&starf;</div>
+          <div class="review-text">"This game revealed things about my friends I wish I didn't know."</div>
+        </div>
+        <div class="review">
+          <div class="stars" aria-label="5 stars">&starf;&starf;&starf;&starf;&starf;</div>
+          <div class="review-text">"Five minutes in, someone overshared. Ten minutes in, we encouraged it."</div>
+        </div>
+        <div class="review">
+          <div class="stars" aria-label="5 stars">&starf;&starf;&starf;&starf;&starf;</div>
+          <div class="review-text">"We laughed so hard we had to take a break. Then kept playing."</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="warning-banner" id="buy">
+  <div class="warning-left">
+    <div class="warning-icon" aria-hidden="true">!</div>
+    <div>
+      <div class="warning-title">Warning</div>
+      <div class="warning-text">Contains strong language, sexual references, bodily functions, and absolutely no useful life advice.<br>Not suitable for persons under 18 years of age.</div>
+    </div>
+  </div>
+  <div>
+    <a href="#" class="btn-orange" style="font-size:15px;padding:14px 28px;white-space:nowrap;">BUY NOW &ndash; &pound;28.99</a>
+    <p class="secure-note">Secure checkout powered by Stripe</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-logo">LIFE EXPERIENCES <span>(Unfortunately)</span></div>
+    <div class="footer-links">
+      <a href="faq.html">FAQ</a>
+      <a href="#">Shipping</a>
+      <a href="#">Returns</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms &amp; Conditions</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; 2020 Life Experiences Card Game. All Rights Reserved.</div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', () => {
+    const isOpen = hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+    hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+  });
+
+  function closeMenu() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-label', 'Open menu');
+  }
+</script>
+</body>
+</html>
