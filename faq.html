@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ - Life Experiences (Unfortunately)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;0,900;1,700&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<a class="visually-hidden" href="#main">Skip to content</a>
+
+<nav aria-label="Primary navigation">
+  <a class="nav-logo" href="index.html">LIFE EXPERIENCES <span>(Unfortunately)</span></a>
+  <ul class="nav-links">
+    <li><a href="how-to-play.html">HOW TO PLAY</a></li>
+    <li><a href="index.html#examples">EXAMPLES</a></li>
+    <li><a href="index.html#box">WHAT'S IN THE BOX</a></li>
+    <li><a href="index.html#reviews">REVIEWS</a></li>
+    <li><a href="faq.html" class="active">FAQ</a></li>
+  </ul>
+  <a href="#buy" class="btn-orange nav-buy">BUY NOW &ndash; &pound;28.99</a>
+  <button class="nav-hamburger" id="hamburger" type="button" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="how-to-play.html" onclick="closeMenu()">HOW TO PLAY</a>
+  <a href="index.html#examples" onclick="closeMenu()">EXAMPLES</a>
+  <a href="index.html#box" onclick="closeMenu()">WHAT'S IN THE BOX</a>
+  <a href="index.html#reviews" onclick="closeMenu()">REVIEWS</a>
+  <a href="faq.html" onclick="closeMenu()">FAQ</a>
+  <a href="#buy" class="btn-orange mobile-buy-link" onclick="closeMenu()">BUY NOW &ndash; &pound;28.99</a>
+</div>
+
+<main id="main">
+  <section class="page-hero faq-hero" aria-labelledby="page-title">
+    <p class="eyebrow">Life Experiences (Unfortunately)</p>
+    <h1 id="page-title">Frequently Asked <em>Questions</em></h1>
+    <p>You have questions. We have answers. Some of them are even helpful.</p>
+  </section>
+
+  <section class="faq-wrap" aria-label="Frequently asked questions">
+    <div class="faq-category">The Basics</div>
+
+    <article class="faq-item">
+      <button class="faq-trigger" type="button" aria-expanded="false">
+        <span class="faq-q">Is this game family friendly?</span>
+        <span class="faq-tag tag-other">General</span>
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-body">
+        <p class="answer-lead">Absolutely not.</p>
+      </div>
+    </article>
+
+    <article class="faq-item">
+      <button class="faq-trigger" type="button" aria-expanded="false">
+        <span class="faq-q">What age is the game for?</span>
+        <span class="faq-tag tag-other">General</span>
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-body">
+        <p class="answer-lead">18+</p>
+        <p class="quip">If you're asking, you're probably too responsible for this game.</p>
+      </div>
+    </article>
+
+    <article class="faq-item">
+      <button class="faq-trigger" type="button" aria-expanded="false">
+        <span class="faq-q">How many players?</span>
+        <span class="faq-tag tag-game">Gameplay</span>
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-body">
+        <p class="answer-lead">2&ndash;10 players.</p>
+        <p>The more players involved, the more likely someone reveals something they should have taken to the grave.</p>
+      </div>
+    </article>
+
+    <article class="faq-item">
+      <button class="faq-trigger" type="button" aria-expanded="false">
+        <span class="faq-q">How long does a game last?</span>
+        <span class="faq-tag tag-game">Gameplay</span>
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-body">
+        <p class="answer-lead">Anywhere from 15 minutes to several hours.</p>
+        <p class="quip">Depends how much emotional damage you're willing to inflict.</p>
+      </div>
+    </article>
+
+    <div class="faq-category">The Rules</div>
+
+    <article class="faq-item">
+      <button class="faq-trigger" type="button" aria-expanded="false">
+        <span class="faq-q">Can I vote for myself?</span>
+        <span class="faq-tag tag-rules">Rules</span>
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-body">
+        <p class="answer-lead">No.</p>
+        <p class="quip">Nice try.</p>
+      </div>
+    </article>
+
+    <article class="faq-item">
+      <button class="faq-trigger" type="button" aria-expanded="false">
+        <span class="faq-q">Can there be multiple winners in a round?</span>
+        <span class="faq-tag tag-rules">Rules</span>
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-body">
+        <p class="answer-lead">Yes.</p>
+        <p>Votes can split between players. There can be multiple winners in a round.</p>
+        <p class="quip">We're not here to tell you who to love.</p>
+      </div>
+    </article>
+
+    <article class="faq-item">
+      <button class="faq-trigger" type="button" aria-expanded="false">
+        <span class="faq-q">What happens if votes are tied?</span>
+        <span class="faq-tag tag-rules">Rules</span>
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-body">
+        <p>Either:</p>
+        <ul>
+          <li>Accept it like adults.</li>
+          <li>Maintain uncomfortable eye contact until somebody gives in.</li>
+        </ul>
+        <p class="quip">Both methods are officially recognised.</p>
+      </div>
+    </article>
+
+    <div class="faq-category">The Cards</div>
+
+    <article class="faq-item">
+      <button class="faq-trigger" type="button" aria-expanded="false">
+        <span class="faq-q">Do Story Cards have to be true?</span>
+        <span class="faq-tag tag-cards">Cards</span>
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-body">
+        <p><strong>Officially:</strong> yes.</p>
+        <p><strong>Unofficially:</strong> that's between you and your conscience.</p>
+        <p>If people discover your story was fake, you lose the Story Card and everyone is allowed to judge you.</p>
+      </div>
+    </article>
+
+    <article class="faq-item">
+      <button class="faq-trigger" type="button" aria-expanded="false">
+        <span class="faq-q">What happens to the Experience Card after each round?</span>
+        <span class="faq-tag tag-cards">Cards</span>
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-body">
+        <p>Most of the time, the Experience Card goes to the bottom of the Experience deck after the round ends.</p>
+        <p>The only exceptions are:</p>
+        <ul>
+          <li>You successfully win with a Story Card.</li>
+          <li>You achieve a Full House.</li>
+        </ul>
+        <p>In either case, you keep the Experience Card as a point.</p>
+      </div>
+    </article>
+
+    <article class="faq-item">
+      <button class="faq-trigger" type="button" aria-expanded="false">
+        <span class="faq-q">What is a Full House?</span>
+        <span class="faq-tag tag-cards">Cards</span>
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-body">
+        <p>A Full House happens when every other player votes for you.</p>
+        <p>You keep the Experience Card as an additional point.</p>
+        <p class="quip">Enjoy the brief feeling of superiority.</p>
+      </div>
+    </article>
+
+    <div class="faq-category">Other</div>
+
+    <article class="faq-item">
+      <button class="faq-trigger" type="button" aria-expanded="false">
+        <span class="faq-q">Can I play with work colleagues?</span>
+        <span class="faq-tag tag-other">Other</span>
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-body">
+        <p class="answer-lead">Technically yes.</p>
+        <p class="quip">Professionally, we advise caution.</p>
+      </div>
+    </article>
+
+    <article class="faq-item">
+      <button class="faq-trigger" type="button" aria-expanded="false">
+        <span class="faq-q">Do you ship internationally?</span>
+        <span class="faq-tag tag-other">Other</span>
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-body">
+        <p class="answer-lead">Not yet.</p>
+        <p>We're working on it.</p>
+      </div>
+    </article>
+
+    <article class="faq-item">
+      <button class="faq-trigger" type="button" aria-expanded="false">
+        <span class="faq-q">What if I lose?</span>
+        <span class="faq-tag tag-other">Other</span>
+        <span class="faq-icon" aria-hidden="true"></span>
+      </button>
+      <div class="faq-body">
+        <p>You'll still have the memories.</p>
+        <p class="quip">Unfortunately.</p>
+      </div>
+    </article>
+  </section>
+</main>
+
+<section class="warning-banner" id="buy">
+  <div class="warning-left">
+    <div class="warning-icon" aria-hidden="true">!</div>
+    <div>
+      <div class="warning-title">Warning</div>
+      <div class="warning-text">Contains strong language, sexual references, bodily functions, and absolutely no useful life advice.<br>Not suitable for persons under 18 years of age.</div>
+    </div>
+  </div>
+  <div>
+    <a href="#" class="btn-orange btn-large btn-nowrap">BUY NOW &ndash; &pound;28.99</a>
+    <p class="secure-note">Secure checkout powered by Stripe</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-logo">LIFE EXPERIENCES <span>(Unfortunately)</span></div>
+    <div class="footer-links">
+      <a href="faq.html">FAQ</a>
+      <a href="#">Shipping</a>
+      <a href="#">Returns</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms &amp; Conditions</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; 2020 Life Experiences Card Game. All Rights Reserved.</div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', () => {
+    const isOpen = hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+    hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+  });
+
+  function closeMenu() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-label', 'Open menu');
+  }
+
+  document.querySelectorAll('.faq-trigger').forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const item = trigger.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+
+      document.querySelectorAll('.faq-item.open').forEach((openItem) => {
+        openItem.classList.remove('open');
+        openItem.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+      });
+
+      if (!isOpen) {
+        item.classList.add('open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>
+</body>
+</html>
