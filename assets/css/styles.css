@@ -1434,3 +1434,89 @@ footer {
     font-size: 12px;
   }
 }
+/* Hero card layout correction */
+.product-stage {
+  width: 560px;
+  height: 420px;
+  position: relative;
+  margin-left: auto;
+}
+
+.sample-card {
+  width: 140px;
+  min-height: 175px;
+}
+
+.sample-card::before {
+  border: 0;
+  padding: 0;
+  border-radius: 0;
+  margin-bottom: 14px;
+}
+
+.sample-card.orange {
+  background: var(--cream-deep);
+  color: var(--ink);
+  left: 0;
+  top: 56px;
+  z-index: 2;
+}
+
+.sample-card.orange span {
+  border-top-color: rgba(0,0,0,.18);
+}
+
+.sample-card.teal {
+  background: var(--teal);
+  color: #fff;
+  left: 158px;
+  top: 84px;
+  z-index: 3;
+}
+
+.game-box {
+  background: var(--cream-deep);
+  color: var(--ink);
+  width: 210px;
+  height: 230px;
+  top: 20px;
+  right: 0;
+  z-index: 4;
+  box-shadow: 0 18px 36px rgba(0,0,0,.18);
+}
+
+.game-box em {
+  color: var(--orange);
+}
+
+.game-box small,
+.game-box .box-meta {
+  color: var(--body);
+}
+
+.sample-card.story {
+  background: var(--cream-deep);
+  color: var(--ink);
+  left: 318px;
+  top: 270px;
+  z-index: 2;
+}
+
+.sample-card.story span {
+  border-top-color: rgba(0,0,0,.18);
+}
+
+.shadow-card {
+  left: 18px;
+  top: 78px;
+  background: var(--orange);
+  opacity: .22;
+}
+
+/* Keep the wider hero-card layout from squeezing on tablets */
+@media (max-width: 1080px) {
+  .product-stage {
+    transform: scale(.82);
+    transform-origin: right center;
+  }
+}
