@@ -1342,6 +1342,9 @@ footer {
   background: #fff;
   border: 1px solid var(--line);
   border-radius: 8px;
+  padding: 22px;
+}
+
 /* Index hero card display fixes */
 .hero-right {
   min-height: 430px;
@@ -1408,6 +1411,7 @@ footer {
 .sample-card.story span {
   border-top-color: rgba(0,0,0,.18);
 }
+
 /* Slightly larger top-left logo */
 .nav-logo {
   font-size: 18px;
