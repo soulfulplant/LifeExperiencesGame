@@ -1586,3 +1586,17 @@ footer {
     width: 100%;
   }
 }
+.setup-card.story {
+  background: var(--cream-deep);
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+.setup-card.story p {
+  color: var(--body);
+}
+
+.setup-card.story .setup-qty {
+  border-color: var(--ink);
+  color: var(--ink);
+}
