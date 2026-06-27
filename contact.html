@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us - Life Experiences (Unfortunately)</title>
+<meta name="description" content="Contact Life Experiences Card Game and find our legal information.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;0,900;1,700&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<a class="visually-hidden" href="#main">Skip to content</a>
+<nav aria-label="Primary navigation">
+  <a class="nav-logo" href="index.html">LIFE EXPERIENCES <span>(Unfortunately)</span></a>
+  <ul class="nav-links"><li><a href="how-to-play.html">HOW TO PLAY</a></li><li><a href="index.html#examples">EXAMPLES</a></li><li><a href="index.html#box">WHAT'S IN THE BOX</a></li><li><a href="index.html#reviews">REVIEWS</a></li><li><a href="faq.html">FAQ</a></li></ul>
+  <a href="signup.html" class="btn-orange nav-buy">JOIN THE WAITING LIST</a>
+  <button class="nav-hamburger" id="hamburger" type="button" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu"><a href="how-to-play.html" onclick="closeMenu()">HOW TO PLAY</a><a href="index.html#examples" onclick="closeMenu()">EXAMPLES</a><a href="index.html#box" onclick="closeMenu()">WHAT'S IN THE BOX</a><a href="index.html#reviews" onclick="closeMenu()">REVIEWS</a><a href="faq.html" onclick="closeMenu()">FAQ</a><a href="signup.html" class="btn-orange mobile-buy-link" onclick="closeMenu()">JOIN THE WAITING LIST</a></div>
+<main id="main">
+  <section class="page-hero" aria-labelledby="page-title"><p class="eyebrow">Questions, Complaints, Existential Dread</p><h1 id="page-title">Contact <em>Us</em></h1><p>Get in touch and a real human will reply as soon as reasonably possible.</p></section>
+  <section class="content-wrap">
+    <div class="content-grid">
+      <article class="panel"><h2>Contact Details</h2><ul class="contact-list"><li><strong>Email:</strong> <a href="mailto:hello@example.com">hello@example.com</a></li><li><strong>Phone:</strong> <a href="tel:+441234567890">+44 (0)1234 567 890</a></li><li><strong>Postal address:</strong><br><span class="placeholder">[Insert business postal address]</span></li></ul><p><small>The email address and telephone number are placeholders. Replace them before publishing.</small></p></article>
+      <article class="panel"><h2>Legal Information</h2><p>Our legal page explains the rules for using this website, joining the waiting list and how we handle personal information.</p><p><a class="btn-orange" href="terms-and-conditions.html">TERMS &amp; CONDITIONS</a></p><p><a href="terms-and-conditions.html#privacy"><strong>Read the Privacy Notice →</strong></a></p></article>
+    </div>
+  </section>
+</main>
+<footer><div class="footer-top"><div class="footer-logo">LIFE EXPERIENCES <span>(Unfortunately)</span></div><div class="footer-links"><a href="faq.html">FAQ</a><a href="signup.html">Waiting List</a><a href="terms-and-conditions.html#privacy">Privacy Policy</a><a href="terms-and-conditions.html">Terms &amp; Conditions</a><a href="contact.html">Contact</a></div></div><div class="footer-bottom">&copy; 2026 Life Experiences Card Game. All Rights Reserved.</div></footer>
+<script>const hamburger=document.getElementById('hamburger');const mobileMenu=document.getElementById('mobileMenu');hamburger.addEventListener('click',()=>{const isOpen=hamburger.classList.toggle('open');mobileMenu.classList.toggle('open',isOpen);hamburger.setAttribute('aria-expanded',String(isOpen));hamburger.setAttribute('aria-label',isOpen?'Close menu':'Open menu')});function closeMenu(){hamburger.classList.remove('open');mobileMenu.classList.remove('open');hamburger.setAttribute('aria-expanded','false');hamburger.setAttribute('aria-label','Open menu')}</script>
+</body>
+</html>
