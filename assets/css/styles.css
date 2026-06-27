@@ -1603,6 +1603,106 @@ footer {
 
 
 /* Signup, contact and legal pages */
+.sample-download-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.download-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid var(--line);
+  border-top: 6px solid var(--orange);
+  border-radius: 8px;
+  padding: 30px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.download-card.teacher-card {
+  border-top-color: var(--teal);
+}
+
+.pdf-badge {
+  margin-bottom: 18px;
+  border-radius: 4px;
+  padding: 7px 10px;
+  background: var(--ink);
+  color: var(--white);
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.download-kicker {
+  margin-bottom: 5px;
+  color: var(--orange);
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.teacher-card .download-kicker {
+  color: var(--teal);
+}
+
+.download-card h2 {
+  margin-bottom: 12px;
+  color: var(--ink);
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 26px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.download-details {
+  flex: 1;
+  margin: 20px 0 26px;
+  padding-left: 20px;
+}
+
+.download-details li {
+  margin-bottom: 8px;
+}
+
+.btn-disabled {
+  border-color: #8A8177;
+  background: #8A8177;
+  cursor: not-allowed;
+  opacity: .78;
+}
+
+.btn-disabled:hover {
+  border-color: #8A8177;
+  background: #8A8177;
+  transform: none;
+}
+
+.sample-note {
+  margin-top: 34px;
+  border-left: 5px solid var(--teal);
+  border-radius: 0 8px 8px 0;
+  padding: 24px 26px;
+  background: var(--cream);
+}
+
+.sample-note h2 {
+  margin-bottom: 10px;
+  color: var(--ink);
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.sample-note p + p {
+  margin-top: 10px;
+}
+
 .content-wrap {
   max-width: 920px;
   margin: 0 auto;
@@ -1711,6 +1811,14 @@ footer {
 }
 
 @media (max-width: 760px) {
+  .sample-download-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .download-card {
+    padding: 24px 20px;
+  }
+
   .content-wrap {
     padding: 38px 18px 58px;
   }
@@ -1723,4 +1831,3 @@ footer {
     min-height: 780px;
   }
 }
-
