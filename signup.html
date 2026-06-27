@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join the Waiting List - Life Experiences (Unfortunately)</title>
+<meta name="description" content="Join the waiting list for Life Experiences (Unfortunately) and complete our launch questionnaire.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;0,900;1,700&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<a class="visually-hidden" href="#main">Skip to content</a>
+<nav aria-label="Primary navigation">
+  <a class="nav-logo" href="index.html">LIFE EXPERIENCES <span>(Unfortunately)</span></a>
+  <ul class="nav-links">
+    <li><a href="how-to-play.html">HOW TO PLAY</a></li>
+    <li><a href="index.html#examples">EXAMPLES</a></li>
+    <li><a href="index.html#box">WHAT'S IN THE BOX</a></li>
+    <li><a href="index.html#reviews">REVIEWS</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+  </ul>
+  <a href="signup.html" class="btn-orange nav-buy">JOIN THE WAITING LIST</a>
+  <button class="nav-hamburger" id="hamburger" type="button" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="how-to-play.html" onclick="closeMenu()">HOW TO PLAY</a>
+  <a href="index.html#examples" onclick="closeMenu()">EXAMPLES</a>
+  <a href="index.html#box" onclick="closeMenu()">WHAT'S IN THE BOX</a>
+  <a href="index.html#reviews" onclick="closeMenu()">REVIEWS</a>
+  <a href="faq.html" onclick="closeMenu()">FAQ</a>
+  <a href="signup.html" class="btn-orange mobile-buy-link" onclick="closeMenu()">JOIN THE WAITING LIST</a>
+</div>
+<main id="main">
+  <section class="page-hero" aria-labelledby="page-title">
+    <p class="eyebrow">Coming Soon</p>
+    <h1 id="page-title">Join The <em>Waiting List</em></h1>
+    <p>Help shape the game and be first to hear when launch day finally makes its questionable entrance.</p>
+  </section>
+  <section class="content-wrap">
+    <div class="form-notice"><strong>Before submitting:</strong> read the <a href="terms-and-conditions.html#privacy">Privacy Notice</a>. Joining is free, does not place an order and does not guarantee product availability. This questionnaire is hosted by Google Forms, so Google's privacy practices also apply.</div>
+    <div class="form-shell">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSebdQUVNegPjP-vhObxaju4obS9LEhWynwpYrhtNN2gRJ66Yw/viewform?embedded=true" width="640" height="587" frameborder="0" marginheight="0" marginwidth="0" loading="lazy" title="Life Experiences waiting-list questionnaire">Loading…</iframe>
+    </div>
+  </section>
+</main>
+<section class="warning-banner">
+  <div class="warning-left"><div class="warning-icon" aria-hidden="true">!</div><div><div class="warning-title">Warning</div><div class="warning-text">Contains strong language, sexual references, bodily functions, and absolutely no useful life advice.<br>Not suitable for persons under 18 years of age.</div></div></div>
+</section>
+<footer>
+  <div class="footer-top"><div class="footer-logo">LIFE EXPERIENCES <span>(Unfortunately)</span></div><div class="footer-links"><a href="faq.html">FAQ</a><a href="signup.html">Waiting List</a><a href="terms-and-conditions.html#privacy">Privacy Policy</a><a href="terms-and-conditions.html">Terms &amp; Conditions</a><a href="contact.html">Contact</a></div></div>
+  <div class="footer-bottom">&copy; 2026 Life Experiences Card Game. All Rights Reserved.</div>
+</footer>
+<script>
+const hamburger=document.getElementById('hamburger');const mobileMenu=document.getElementById('mobileMenu');hamburger.addEventListener('click',()=>{const isOpen=hamburger.classList.toggle('open');mobileMenu.classList.toggle('open',isOpen);hamburger.setAttribute('aria-expanded',String(isOpen));hamburger.setAttribute('aria-label',isOpen?'Close menu':'Open menu')});function closeMenu(){hamburger.classList.remove('open');mobileMenu.classList.remove('open');hamburger.setAttribute('aria-expanded','false');hamburger.setAttribute('aria-label','Open menu')}
+</script>
+</body>
+</html>
