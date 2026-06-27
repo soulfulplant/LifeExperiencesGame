@@ -1605,7 +1605,7 @@ footer {
 /* Signup, contact and legal pages */
 .sample-download-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
 }
 
@@ -1623,6 +1623,10 @@ footer {
 
 .download-card.teacher-card {
   border-top-color: var(--teal);
+}
+
+.download-card.blank-card {
+  border-top-color: #A76400;
 }
 
 .pdf-badge {
@@ -1651,6 +1655,10 @@ footer {
   color: var(--teal);
 }
 
+.blank-card .download-kicker {
+  color: #825000;
+}
+
 .download-card h2 {
   margin-bottom: 12px;
   color: var(--ink);
@@ -1668,6 +1676,19 @@ footer {
 
 .download-details li {
   margin-bottom: 8px;
+}
+
+.btn-download {
+  width: 100%;
+  text-align: center;
+}
+
+.product-note {
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1.55;
 }
 
 .btn-disabled {
@@ -1701,6 +1722,67 @@ footer {
 
 .sample-note p + p {
   margin-top: 10px;
+}
+
+.usage-note {
+  margin-top: 24px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 24px 26px;
+  background: var(--white);
+}
+
+.usage-note h2 {
+  margin-bottom: 10px;
+  color: var(--ink);
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.usage-note p + p {
+  margin-top: 10px;
+}
+
+.waitlist-cta {
+  margin-top: 34px;
+  border-radius: 8px;
+  padding: 38px 30px;
+  background: var(--teal);
+  color: var(--white);
+  text-align: center;
+}
+
+.waitlist-cta h2 {
+  margin-bottom: 10px;
+  color: var(--white);
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.waitlist-cta p {
+  max-width: 650px;
+  margin: 0 auto 14px;
+  color: var(--on-dark-soft);
+}
+
+.waitlist-cta .waitlist-lead {
+  color: var(--white);
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.waitlist-cta .btn-orange {
+  margin-top: 8px;
+}
+
+.waitlist-cta .small-note {
+  margin-top: 12px;
+  margin-bottom: 0;
+  font-size: 12px;
 }
 
 .content-wrap {
@@ -1829,5 +1911,11 @@ footer {
 
   .form-shell iframe {
     min-height: 780px;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 1080px) {
+  .sample-download-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
