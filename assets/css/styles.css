@@ -1683,6 +1683,62 @@ footer {
   text-align: center;
 }
 
+.download-actions {
+  width: 100%;
+  margin-top: auto;
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+
+.format-heading {
+  margin-bottom: 10px;
+  color: var(--ink);
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.download-actions .btn-orange,
+.btn-format-secondary {
+  min-height: 44px;
+  padding: 10px 12px;
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.btn-format-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--teal);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--teal);
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 900;
+  text-decoration: none;
+  transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+
+.btn-format-secondary:hover {
+  background: var(--teal);
+  color: var(--white);
+  transform: translateY(-1px);
+}
+
+.format-note {
+  margin: 6px 0 14px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.format-note:last-child {
+  margin-bottom: 0;
+}
+
 .product-note {
   margin-top: 16px;
   color: var(--muted);
