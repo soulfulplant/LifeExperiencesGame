@@ -118,6 +118,7 @@
 <script>
 const hamburger=document.getElementById('hamburger');const mobileMenu=document.getElementById('mobileMenu');hamburger.addEventListener('click',()=>{const isOpen=hamburger.classList.toggle('open');mobileMenu.classList.toggle('open',isOpen);hamburger.setAttribute('aria-expanded',String(isOpen));hamburger.setAttribute('aria-label',isOpen?'Close menu':'Open menu')});function closeMenu(){hamburger.classList.remove('open');mobileMenu.classList.remove('open');hamburger.setAttribute('aria-expanded','false');hamburger.setAttribute('aria-label','Open menu')}
 </script>
+  <script src="assets/js/cookie-consent.js" defer></script>
 </body>
 </html>
 
