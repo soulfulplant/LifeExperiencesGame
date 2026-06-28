@@ -106,6 +106,7 @@ function closeMenu(){hamburger.classList.remove('open');mobileMenu.classList.rem
 submissionText.addEventListener('input',()=>{characterCount.textContent=`${submissionText.value.length} / 3000`});
 storyForm.addEventListener('submit',event=>{event.preventDefault();if(!storyForm.reportValidity())return;if(submissionEmail.endsWith('@example.com')){formMessage.textContent='Site owner: replace submissions@example.com in this page before publishing.';formMessage.classList.add('error');return}const data=new FormData(storyForm),type=data.get('submissionType'),name=data.get('name')||'Anonymous',subject=`Game submission: ${type}`,body=[`Submission type: ${type}`,`Name or nickname: ${name}`,`Email: ${data.get('email')}`,`Credit preference: ${data.get('creditPreference')}`,'','STORY OR CARD IDEA',data.get('submissionText'),'','ADDITIONAL CONTEXT',data.get('context')||'None provided','','The submitter confirmed the age, rights, usage-permission and privacy statements shown on the submission page.'].join('\n');window.location.href=`mailto:${submissionEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`});
 </script>
+  <script src="assets/js/cookie-consent.js" defer></script>
 </body>
 </html>
 
