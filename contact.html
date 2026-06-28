@@ -14,21 +14,67 @@
 <a class="visually-hidden" href="#main">Skip to content</a>
 <nav aria-label="Primary navigation">
   <a class="nav-logo" href="index.html">LIFE EXPERIENCES <span>(Unfortunately)</span></a>
-  <ul class="nav-links"><li><a href="how-to-play.html">HOW TO PLAY</a></li><li><a href="index.html#examples">EXAMPLES</a></li><li><a href="index.html#box">WHAT'S IN THE BOX</a></li><li><a href="index.html#reviews">REVIEWS</a></li><li><a href="faq.html">FAQ</a></li></ul>
+  <ul class="nav-links">
+    <li><a href="how-to-play.html">HOW TO PLAY</a></li>
+    <li><a href="sample.html">FREE SAMPLES</a></li>
+    <li><a href="submit-your-story.html">SUBMIT A STORY</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+  </ul>
   <a href="signup.html" class="btn-orange nav-buy">JOIN THE WAITING LIST</a>
   <button class="nav-hamburger" id="hamburger" type="button" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
-<div class="mobile-menu" id="mobileMenu"><a href="how-to-play.html" onclick="closeMenu()">HOW TO PLAY</a><a href="index.html#examples" onclick="closeMenu()">EXAMPLES</a><a href="index.html#box" onclick="closeMenu()">WHAT'S IN THE BOX</a><a href="index.html#reviews" onclick="closeMenu()">REVIEWS</a><a href="faq.html" onclick="closeMenu()">FAQ</a><a href="signup.html" class="btn-orange mobile-buy-link" onclick="closeMenu()">JOIN THE WAITING LIST</a></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="how-to-play.html" onclick="closeMenu()">HOW TO PLAY</a>
+  <a href="sample.html" onclick="closeMenu()">FREE SAMPLES</a>
+  <a href="submit-your-story.html" onclick="closeMenu()">SUBMIT A STORY</a>
+  <a href="faq.html" onclick="closeMenu()">FAQ</a>
+  <a href="signup.html" class="btn-orange mobile-buy-link" onclick="closeMenu()">JOIN THE WAITING LIST</a>
+</div>
 <main id="main">
   <section class="page-hero" aria-labelledby="page-title"><p class="eyebrow">Questions, Complaints, Existential Dread</p><h1 id="page-title">Contact <em>Us</em></h1><p>Get in touch and a real human will reply as soon as reasonably possible.</p></section>
   <section class="content-wrap">
     <div class="content-grid">
       <article class="panel"><h2>Contact Details</h2><ul class="contact-list"><li><strong>Email:</strong> <a href="mailto:hello@example.com">hello@example.com</a></li><li><strong>Phone:</strong> <a href="tel:+441234567890">+44 (0)1234 567 890</a></li><li><strong>Postal address:</strong><br><span class="placeholder">[Insert business postal address]</span></li></ul><p><small>The email address and telephone number are placeholders. Replace them before publishing.</small></p></article>
-      <article class="panel"><h2>Legal Information</h2><p>Our legal page explains the rules for using this website, joining the waiting list and how we handle personal information.</p><p><a class="btn-orange" href="terms-and-conditions.html">TERMS &amp; CONDITIONS</a></p><p><a href="terms-and-conditions.html#privacy"><strong>Read the Privacy Notice →</strong></a></p></article>
+      <article class="panel"><h2>Legal Information</h2><p>Our legal page explains the rules for using this website, joining the waiting list and how we handle personal information.</p><p><a class="btn-orange" href="terms-and-conditions.html">TERMS &amp; CONDITIONS</a></p><p><a href="terms-and-conditions.html#privacy"><strong>Read the Privacy Notice Ã¢â€ â€™</strong></a></p></article>
     </div>
   </section>
 </main>
-<footer><div class="footer-top"><div class="footer-logo">LIFE EXPERIENCES <span>(Unfortunately)</span></div><div class="footer-links"><a href="faq.html">FAQ</a><a href="signup.html">Waiting List</a><a href="terms-and-conditions.html#privacy">Privacy Policy</a><a href="terms-and-conditions.html">Terms &amp; Conditions</a><a href="contact.html">Contact</a></div></div><div class="footer-bottom">&copy; 2026 Life Experiences Card Game. All Rights Reserved.</div></footer>
+<footer>
+  <div class="footer-main">
+    <div class="footer-brand">
+      <div class="footer-logo">LIFE EXPERIENCES <span>(Unfortunately)</span></div>
+      <p>Real life is humiliating. Let's compare notes.</p>
+    </div>
+    <div class="footer-groups">
+      <section class="footer-group" aria-labelledby="footer-game">
+        <h2 id="footer-game">Game</h2>
+        <a href="index.html">Home</a>
+        <a href="how-to-play.html">How to Play</a>
+        <a href="index.html#examples">Examples</a>
+        <a href="index.html#box">What's in the Box</a>
+        <a href="index.html#reviews">Reviews</a>
+        <a href="faq.html">FAQ</a>
+      </section>
+      <section class="footer-group" aria-labelledby="footer-community">
+        <h2 id="footer-community">Community</h2>
+        <a href="sample.html">Free Samples</a>
+        <a href="submit-your-story.html">Submit a Story</a>
+        <a href="signup.html">Join the Waitlist</a>
+      </section>
+      <section class="footer-group" aria-labelledby="footer-help">
+        <h2 id="footer-help">Help &amp; Legal</h2>
+        <a href="contact.html">Contact</a>
+        <a href="terms-and-conditions.html#privacy">Privacy Policy</a>
+        <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+      </section>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; 2026 Life Experiences Card Game. All Rights Reserved.</div>
+</footer>
 <script>const hamburger=document.getElementById('hamburger');const mobileMenu=document.getElementById('mobileMenu');hamburger.addEventListener('click',()=>{const isOpen=hamburger.classList.toggle('open');mobileMenu.classList.toggle('open',isOpen);hamburger.setAttribute('aria-expanded',String(isOpen));hamburger.setAttribute('aria-label',isOpen?'Close menu':'Open menu')});function closeMenu(){hamburger.classList.remove('open');mobileMenu.classList.remove('open');hamburger.setAttribute('aria-expanded','false');hamburger.setAttribute('aria-label','Open menu')}</script>
 </body>
 </html>
+
+
+
+
