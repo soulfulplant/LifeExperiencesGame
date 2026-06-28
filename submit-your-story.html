@@ -42,23 +42,43 @@
       <p class="submission-safety"><strong>Protect people's privacy:</strong> change names and identifying details. Do not submit confidential information, allegations, or sensitive information about another person.</p>
     </div>
 
-    <form class="story-form" id="storyForm">
-      <div class="form-heading"><p class="eyebrow">The Form</p><h2>Share the chaos</h2><p>Required fields are marked with an asterisk.</p></div>
-      <div class="form-field"><label for="submissionType">What are you submitting? *</label><select id="submissionType" name="submissionType" required><option value="">Choose one</option><option value="Real story">A real story or experience</option><option value="Experience Card idea">An Experience Card idea</option><option value="Reaction Card idea">A Reaction Card idea</option></select></div>
-      <div class="form-field"><label for="submissionText">Your story or card idea *</label><textarea id="submissionText" name="submissionText" rows="8" maxlength="3000" required placeholder="Tell us what happened, or write the card exactly as you imagine it..."></textarea><div class="field-help"><span>Maximum 3,000 characters.</span><span id="characterCount">0 / 3000</span></div></div>
-      <div class="form-field"><label for="context">Anything else we should know?</label><textarea id="context" name="context" rows="4" maxlength="1000" placeholder="Optional context, suggested point value, or why this belongs in the game..."></textarea></div>
-      <div class="form-row"><div class="form-field"><label for="name">Your name or nickname</label><input id="name" name="name" type="text" maxlength="100" autocomplete="name" placeholder="Optional"></div><div class="form-field"><label for="email">Email address *</label><input id="email" name="email" type="email" maxlength="254" autocomplete="email" required placeholder="you@example.com"></div></div>
-      <div class="form-field"><label for="creditPreference">If selected, how should we credit you?</label><select id="creditPreference" name="creditPreference"><option value="Anonymous">Keep me anonymous</option><option value="First name or nickname">Use my first name or nickname</option><option value="Contact me first">Contact me before deciding</option></select></div>
-      <fieldset class="consent-box"><legend>Before you submit</legend>
-        <label class="check-row"><input type="checkbox" required><span>I confirm that I am at least 18 years old. *</span></label>
-        <label class="check-row"><input type="checkbox" required><span>I created this submission or have the right to submit it, and it does not knowingly infringe anyone else's rights. *</span></label>
-        <label class="check-row"><input type="checkbox" required><span>I give Life Experiences (Unfortunately) permission to review, edit, adapt and potentially use this submission in the game, marketing or related materials. I understand that selection is not guaranteed and no payment is promised unless separately agreed in writing. *</span></label>
-        <label class="check-row"><input type="checkbox" required><span>I have read the <a href="terms-and-conditions.html#privacy">Privacy Notice</a> and the submission terms below. *</span></label>
-      </fieldset>
-      <button class="btn-orange btn-large submit-story-button" type="submit">PREPARE EMAIL SUBMISSION</button>
-      <p class="form-submit-note">This opens your email application with the submission filled in. You can review everything before sending.</p>
-      <div class="form-message" id="formMessage" role="status" aria-live="polite"></div>
-    </form>
+    <section class="story-form" aria-labelledby="submission-form-title">
+      <div class="form-heading">
+        <p class="eyebrow">The Form</p>
+        <h2 id="submission-form-title">Share the chaos</h2>
+        <p>Use the questionnaire below to submit a real story, Experience Card idea or Reaction Card idea.</p>
+      </div>
+
+      <div class="form-notice">
+        <strong>Before submitting:</strong> remove identifying details about other people and read the submission terms below. The questionnaire is hosted by Google Forms, so Google's privacy practices also apply.
+      </div>
+
+      <div class="form-shell story-embed-shell">
+        <div class="external-content-placeholder" data-cookie-placeholder>
+          <h2>Allow optional content to open the form</h2>
+          <p>The submission questionnaire is hosted by Google Forms. Loading it connects to Google, which may use cookies or similar technologies.</p>
+          <button type="button" class="btn-orange" data-enable-optional>ALLOW AND LOAD THE FORM</button>
+          <p class="external-content-note">You can change this choice later using â€œCookie settingsâ€ in the footer.</p>
+        </div>
+
+        <iframe
+          data-cookie-src="https://docs.google.com/forms/d/e/1FAIpQLSfv3H6oRKki5p_13VXg1o3jgLYktswE193vXASo2rXwawKpZw/viewform?embedded=true"
+          width="640"
+          height="900"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          loading="lazy"
+          title="Submit Your Story questionnaire"
+          hidden>
+          Loading...
+        </iframe>
+
+        <noscript>
+          <p class="external-content-noscript">JavaScript is required to display the embedded form. You can instead <a href="https://docs.google.com/forms/d/e/1FAIpQLSfv3H6oRKki5p_13VXg1o3jgLYktswE193vXASo2rXwawKpZw/viewform">open the questionnaire directly on Google Forms</a>.</p>
+        </noscript>
+      </div>
+    </section>
 
     <section class="submission-terms" aria-labelledby="submission-terms-title"><h2 id="submission-terms-title">Submission terms</h2><p>Submitting an idea does not guarantee that it will be used. We may already have received or developed similar material. You retain ownership of your original submission, but grant us worldwide, non-exclusive, royalty-free permission to review, reproduce, edit, adapt and use it for evaluating, developing, producing and promoting the game and related materials.</p><p>We may shorten, rewrite, combine or anonymise submissions. Unless separately agreed in writing, submitting an idea does not create employment, partnership, confidentiality or an entitlement to payment, royalties or credit.</p><p>Do not submit material that is unlawful, threatening, defamatory, discriminatory, confidential, copied from someone else, or likely to identify or harm another person.</p><p><strong>Important:</strong> these submission terms are a working template and should be legally reviewed for your business and jurisdiction before publication.</p></section>
   </section>
@@ -98,17 +118,15 @@
 </footer>
 
 <script>
-const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu'),storyForm=document.getElementById('storyForm'),submissionText=document.getElementById('submissionText'),characterCount=document.getElementById('characterCount'),formMessage=document.getElementById('formMessage');
-/* Replace this placeholder with the real address that should receive submissions. */
-const submissionEmail='submissions@example.com';
+const hamburger=document.getElementById('hamburger');
+const mobileMenu=document.getElementById('mobileMenu');
 hamburger.addEventListener('click',()=>{const isOpen=hamburger.classList.toggle('open');mobileMenu.classList.toggle('open',isOpen);hamburger.setAttribute('aria-expanded',String(isOpen));hamburger.setAttribute('aria-label',isOpen?'Close menu':'Open menu')});
 function closeMenu(){hamburger.classList.remove('open');mobileMenu.classList.remove('open');hamburger.setAttribute('aria-expanded','false');hamburger.setAttribute('aria-label','Open menu')}
-submissionText.addEventListener('input',()=>{characterCount.textContent=`${submissionText.value.length} / 3000`});
-storyForm.addEventListener('submit',event=>{event.preventDefault();if(!storyForm.reportValidity())return;if(submissionEmail.endsWith('@example.com')){formMessage.textContent='Site owner: replace submissions@example.com in this page before publishing.';formMessage.classList.add('error');return}const data=new FormData(storyForm),type=data.get('submissionType'),name=data.get('name')||'Anonymous',subject=`Game submission: ${type}`,body=[`Submission type: ${type}`,`Name or nickname: ${name}`,`Email: ${data.get('email')}`,`Credit preference: ${data.get('creditPreference')}`,'','STORY OR CARD IDEA',data.get('submissionText'),'','ADDITIONAL CONTEXT',data.get('context')||'None provided','','The submitter confirmed the age, rights, usage-permission and privacy statements shown on the submission page.'].join('\n');window.location.href=`mailto:${submissionEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`});
 </script>
-  <script src="assets/js/cookie-consent.js" defer></script>
+<script src="assets/js/cookie-consent.js" defer></script>
 </body>
 </html>
+
 
 
 
