@@ -77,7 +77,7 @@
         <div class="cookie-copy">
           <h2 id="cookie-title">Your privacy choices</h2>
           <p>We use necessary browser storage to remember your choice. If you allow optional content, pages such as our waiting-list form can load from Google, which may use cookies or similar technologies.</p>
-          <a href="terms-and-conditions.html#cookies">Read our cookie information</a>
+          <a href="/terms/#cookies">Read our cookie information</a>
         </div>
         <div class="cookie-actions">
           <button type="button" class="cookie-reject">USE NECESSARY ONLY</button>
