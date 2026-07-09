@@ -680,20 +680,6 @@ section {
   gap: 40px;
 }
 
-.bottom-info {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 90px;
-  align-items: start;
-  max-width: 1150px;
-  margin: 0 auto;
-}
-
-.bottom-info #reviews {
-  justify-self: end;
-  max-width: 420px;
-  width: 100%;
-}
 .info-block h2 {
   margin-bottom: 10px;
   color: var(--ink);
@@ -1157,7 +1143,161 @@ section {
 .play-callout li {
   position: relative;
   border-top: 1px solid #EEE7DD;
-  padding: 8px 0 8px 22…705 tokens truncated…ing: 1px;
+  padding: 8px 0 8px 22px;
+  color: var(--body);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.play-callout li:first-child {
+  border-top: 0;
+}
+
+.play-callout li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 1.15em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--orange);
+}
+
+.score-card,
+.verdict-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 22px;
+  background: var(--white);
+}
+
+.score-card h3,
+.verdict-card h3 {
+  margin-bottom: 8px;
+  color: var(--ink);
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.scoring-table {
+  width: 100%;
+  margin: 24px 0;
+  border: 1px solid var(--line);
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--white);
+}
+
+.scoring-table tr {
+  border-bottom: 1px solid var(--line);
+}
+
+.scoring-table tr:last-child {
+  border-bottom: 0;
+}
+
+.scoring-table td {
+  padding: 18px 16px;
+  color: var(--body);
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+.scoring-table td:first-child {
+  font-weight: 900;
+}
+
+.scoring-table td:last-child {
+  color: var(--orange);
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.score-chip {
+  display: inline-block;
+  margin-right: 10px;
+  border-radius: 999px;
+  padding: 4px 10px;
+  color: var(--white);
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.score-chip.orange { background: var(--orange); }
+.score-chip.teal { background: var(--teal); }
+.score-chip.cream { background: var(--cream-deep); color: var(--ink); }
+
+.optional-round {
+  margin-top: 42px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 34px 28px;
+  background: var(--cream);
+}
+
+.verdict-card.true {
+  border-color: var(--teal);
+  background: var(--teal);
+  color: var(--white);
+}
+
+.verdict-card.true h3,
+.verdict-card.true p {
+  color: var(--white);
+}
+
+.verdict-card.false {
+  border: 2px dashed var(--line);
+}
+
+/* Warning banner and footer */
+.warning-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 22px 80px;
+  background: var(--teal);
+  color: var(--white);
+}
+
+.warning-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.warning-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #FFD9C9;
+  color: var(--teal);
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 900;
+}
+
+.warning-title {
+  margin-bottom: 4px;
+  color: var(--white);
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 1px;
   text-transform: uppercase;
 }
 
@@ -1918,6 +2058,22 @@ footer {
   .warning-banner .btn-orange {
     width: 100%;
   }
+}
+
+/* Box/reviews layout repair */
+.bottom-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 90px;
+  align-items: start;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.bottom-info #reviews {
+  justify-self: end;
+  max-width: 420px;
+  width: 100%;
 }
 
 @media (max-width: 760px) {
