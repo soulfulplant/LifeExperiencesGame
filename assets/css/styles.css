@@ -680,6 +680,20 @@ section {
   gap: 40px;
 }
 
+.bottom-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 90px;
+  align-items: start;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.bottom-info #reviews {
+  justify-self: end;
+  max-width: 420px;
+  width: 100%;
+}
 .info-block h2 {
   margin-bottom: 10px;
   color: var(--ink);
@@ -1903,6 +1917,18 @@ footer {
 
   .warning-banner .btn-orange {
     width: 100%;
+  }
+}
+
+@media (max-width: 760px) {
+  .bottom-info {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .bottom-info #reviews {
+    justify-self: start;
+    max-width: none;
   }
 }
 
